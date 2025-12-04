@@ -31,7 +31,7 @@ def color(nombre):
     }
     return colores.get(nombre, "gray")
 
-# Elegir palabra al azar
+# Elige una palabra al azar
 def elegir_palabra():
     palabras = ["flores", "arcoiris", "piano", "unicornio", "girasol"]
     return random.choice(palabras)
@@ -73,13 +73,13 @@ def nueva_partida(root, datos):
     canvas.create_line(60, 40, 140, 40, width=4)
     canvas.create_line(140, 40, 140, 80, width=4)
 
-    # Crear partes ocultas
-    cabeza = canvas.create_oval(100, 60, 160, 100, width=3, state="hidden")
-    cuerpo = canvas.create_line(120, 100, 180, 150, width=3, state="hidden")
-    brazo_izq = canvas.create_line(120, 120, 150, 160, width=3, state="hidden")
-    brazo_der = canvas.create_line(120, 120, 150, 160, width=3, state="hidden")
-    pierna_izq = canvas.create_line(170, 180, 170, 210, width=3, state="hidden")
-    pierna_der = canvas.create_line(170, 180, 170, 210, width=3, state="hidden")
+    # Crea las partes ocultas del cuerpo
+    cabeza = canvas.create_oval(120, 80, 160, 120, width=3, state="hidden")
+    cuerpo = canvas.create_line(140, 120, 140, 170, width=3, state="hidden")
+    brazo_izq = canvas.create_line(140, 140, 110, 160, width=3, state="hidden")
+    brazo_der = canvas.create_line(140, 140, 170, 160, width=3, state="hidden")
+    pierna_izq = canvas.create_line(140, 170, 120, 210, width=3, state="hidden")
+    pierna_der = canvas.create_line(140, 170, 160, 210, width=3, state="hidden")
 
     datos["partes"] = [cabeza, cuerpo, brazo_izq, brazo_der, pierna_izq, pierna_der]
 
@@ -117,21 +117,21 @@ def procesar_letra(letra, datos):
 def iniciar_juego():
     root = tk.Tk()
     root.title("Ahorcado")
-    root.geometry("450x600")
+    root.geometry("550x650")
 
-    lbl_titulo = tk.Label(root, text="Ahorcado", font=("Arial", 20))
+    lbl_titulo = tk.Label(root, text="Ahorcado", font=("Tempus Sans ITC", 20))
     lbl_titulo.pack(pady=5)
 
-    lbl_tablero = tk.Label(root, text="", font=("Arial", 24))
+    lbl_tablero = tk.Label(root, text="", font=("Tempus Sans ITC", 24))
     lbl_tablero.pack(pady=10)
 
-    lbl_info = tk.Label(root, text="Intentos restantes: 6", font=("Arial", 14))
+    lbl_info = tk.Label(root, text="Intentos restantes: 6", font=("Tempus Sans ITC", 14))
     lbl_info.pack(pady=5)
 
-    canvas = tk.Canvas(root, width=250, height=260, bg="pink")
+    canvas = tk.Canvas(root, width=280, height=280, bg="purple")
     canvas.pack(pady=16)
 
-    entry = tk.Entry(root, font=("Arial", 20), width=8)
+    entry = tk.Entry(root, font=("Tempus Sans ITC", 20), width=8)
     entry.pack(pady=12)
 
     datos = {
@@ -153,7 +153,7 @@ def iniciar_juego():
     btn = tk.Button(
         root,
         text="Probar letra",
-        font=("Arial", 12, "bold"),
+        font=("Tempus Sans ITC", 12, "bold"),
         bg=color("verde"),
         fg="white",
         width=12,
@@ -164,7 +164,7 @@ def iniciar_juego():
     btn_reset = tk.Button(
         root,
         text="Nueva Partida",
-        font=("Arial", 12, "bold"),
+        font=("Batang", 12, "bold"),
         bg=color("morado"),
         fg="white",
         width=12,
